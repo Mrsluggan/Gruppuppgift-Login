@@ -8,6 +8,7 @@ public class LoginGrupp3Application {
 
 	public static void main(String[] args) {
 		SpringApplication.run(LoginGrupp3Application.class, args);
+
 	}
 
 }
