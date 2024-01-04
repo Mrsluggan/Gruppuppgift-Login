@@ -18,14 +18,26 @@
     <h2>Startsida</h2>
     <ul>
       <li>Logga in</a></li>
-      <li>Skapa konto</a></li>
+      <li><a href="/createNewAccount">Skapa konto</a></li>
       <!-- Denna ska inte synas om man inte är inloggad-->
       <li>Mina odrar</a></li>
     </ul>
   </nav>
 
   <!-- Här ska produkter placeras ut-->
-  <div id="centerPage">test</div>
+  <div id="centerPage">
+
+    <ul>  
+      <h2>Produkter</h2>
+      <li id="product" th:each=" product : ${products}">
+        <span th:text="${product.name}"></span><br>
+        <span th:text="${product.description}"></span><br>
+        <span th:text="${product.price}"></span> kr<br>
+      </li>
+    </ul>
+
+
+  </div>
 
 </body>
 
