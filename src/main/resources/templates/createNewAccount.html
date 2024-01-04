@@ -7,29 +7,29 @@
 </head>
 <body>
     
-       <form action="@{/createNewAccount}" method="post">
+       <form th:action="@{/createNewAccount}" method="post">
         <label>Förnamn:</label>
-        <input type ="text" placeholder="Namn" th:field="*{firstName}">
-        <input type="" id="" name="" th:value="">
+        <input type ="text" placeholder="Namn" th:name="firstName">
+        
         
         <label>Efternamn:</label>
-        <input type ="text" placeholder="Efternamn" th:field="*{surname}">
+        <input type ="text" placeholder="Efternamn" th:name="surname">
         
         <label>Email:</label>
-        <input type ="text" placeholder="Email" th:field="*{email}">
+        <input type ="text" placeholder="Email" th:name="email">
 
         <label>Användarnamn:</label>
-        <input type ="text" placeholder="Användarnamn" th:field="*{username}">
+        <input type ="text" placeholder="Användarnamn" th:name="username">
        
         <label>Lösenord:</label>
-        <input type ="text" placeholder="Lösenord" th:field="*{password}">
+        <input type ="text" placeholder="Lösenord" th:name="password">
         
         
     
         <button type="submit">Skapa användare</button>
         
         
-    </form> -->
+    </form> 
 
 
 </body>
