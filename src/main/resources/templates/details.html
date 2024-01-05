@@ -8,6 +8,9 @@
 </head>
 
 <body>
+
+
+
   <div id="centerPage">
     <h2>Produkt</h2>
 
@@ -19,7 +22,9 @@
       <span th:each="product : ${id}" th:text="'bilens beskrivning: ' + *{description}"></span><br>
       <span th:each="product : ${id}" th:text="'bilens pris: ' + *{price}"></span><br>
       <!-- Bilden knasar -->
-      <span th:each="product : ${id}" th:text="'bilens bild: ' + *{picture}"></span><br>
+      <span th:each="product : ${id}"></span> <img th:src="${product.picture}" alt="Bildbeskrivning"
+        style="width: 200px;"></a>
+      </span><br>
     </form>
 
 
