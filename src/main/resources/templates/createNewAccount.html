@@ -1,36 +1,55 @@
 <!DOCTYPE html>
 <html lang="sv">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/style.css}">
+
     <title>Document</title>
 </head>
+
 <body>
-    
-       <form th:action="@{/newUser}" method="post">
-        <label>Förnamn:</label>
-        <input type ="text" placeholder="Namn" th:name="firstName">
-        
-        
-        <label>Efternamn:</label>
-        <input type ="text" placeholder="Efternamn" th:name="surname">
-        
-        <label>Email:</label>
-        <input type ="text" placeholder="Email" th:name="email">
+    <header>
+        <h1 style="text-align: center;">Skapa konto</h1>
+    </header>
+    <nav>
+        <h2>Skapa konto</h2>
+        <ul>
+            <li>Logga in</a></li>
+            <li><a href="/createNewAccount">Skapa konto</a></li>
+            <!-- Denna ska inte synas om man inte är inloggad-->
+            <li>Mina odrar</a></li>
+        </ul>
+    </nav>
 
-        <label>Användarnamn:</label>
-        <input type ="text" placeholder="Användarnamn" th:name="username">
-       
-        <label>Lösenord:</label>
-        <input type ="text" placeholder="Lösenord" th:name="password">
-        
-        
-    
-        <button type="submit">Skapa användare</button>
-        
-        
-    </form> 
+    <div id="formDiv">
+        <div>Skriv in dina uppgifter här</div>
+        <form th:action="@{/newUser}" method="post">
+            <label>Förnamn:</label>
+            <input type="text" placeholder="Namn" th:name="firstName"><br>
 
+
+            <label>Efternamn:</label>
+            <input type="text" placeholder="Efternamn" th:name="surname"><br>
+
+            <label>Email:</label>
+            <input type="text" placeholder="Email" th:name="email"><br>
+
+            <label>Användarnamn:</label>
+            <input type="text" placeholder="Användarnamn" th:name="username"><br>
+
+            <label>Lösenord:</label>
+            <input type="text" placeholder="Lösenord" th:name="password"><br>
+
+
+
+            <button type="submit">Skapa användare</button>
+
+
+        </form>
+    </div>
 
 </body>
+
 </html>
