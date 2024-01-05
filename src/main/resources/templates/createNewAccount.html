@@ -14,7 +14,7 @@
         <h1 style="text-align: center;">Skapa konto</h1>
     </header>
     <nav>
-        <h2>Skapa konto</h2>
+        <h2><a href="/">Startsida</a></h2>
         <ul>
             <li>Logga in</a></li>
             <li><a href="/createNewAccount">Skapa konto</a></li>
@@ -24,7 +24,9 @@
     </nav>
 
     <div id="formDiv">
-        <div>Skriv in dina uppgifter här</div>
+        <div>
+            <h2> Skriv in dina uppgifter här</h2>
+        </div>
         <form th:action="@{/newUser}" method="post">
             <label>Förnamn:</label>
             <input type="text" placeholder="Namn" th:name="firstName"><br>

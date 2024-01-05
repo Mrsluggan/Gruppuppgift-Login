@@ -43,5 +43,9 @@ a {
 }
 
 #formDiv{
-  margin-left: 10%;
+  margin: 10%;
+  padding: 10%;
+  text-align: center;
+  background: #cfd8dc;
+  margin-bottom: 2%;
 }

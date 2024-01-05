@@ -4,19 +4,32 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <link rel="stylesheet" th:href="@{/style.css}">
+
+  <title>Details</title>
 </head>
 
 <body>
 
-
+  <header>
+    <h1 style="text-align: center;">Startsida</h1>
+  </header>
+  <nav>
+    <h2><a href="/">Startsida</a></h2>
+    <ul>
+      <li>Logga in</a></li>
+      <li><a href="/createNewAccount">Skapa konto</a></li>
+      <!-- Denna ska inte synas om man inte är inloggad-->
+      <li>Mina odrar</a></li>
+    </ul>
+  </nav>
 
   <div id="centerPage">
     <h2>Produkt</h2>
 
 
     <!-- FUNKAR!!! JOBBA HÄRIFRÅN -->
-    <form th:object="${product}">
+    <form th:object="${product}" id="product">
       <span th:each="product : ${id}" th:text="'bilens ID: ' + *{id}"></span><br>
       <span th:each="product : ${id}" th:text="'bilens namn: ' + *{name}"></span><br>
       <span th:each="product : ${id}" th:text="'bilens beskrivning: ' + *{description}"></span><br>
@@ -25,15 +38,14 @@
       <span th:each="product : ${id}"></span> <img th:src="${product.picture}" alt="Bildbeskrivning"
         style="width: 200px;"></a>
       </span><br>
+
+      <!-- Gör onsynlig om man ej är inloggad-->
+      <button type="submit">Lägg i kundvagn</button>
+
     </form>
 
 
-    <!-- Gör onsynlig om man ej är inloggad-->
-    <button type="submit">Lägg i kundvagn</button>
 
-    <button>
-      <a href="/">Till startsidan</a>
-    </button>
 
   </div>
 
