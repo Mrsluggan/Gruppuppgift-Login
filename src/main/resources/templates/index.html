@@ -27,11 +27,11 @@
   <!-- Här ska produkter placeras ut-->
   <div id="centerPage">
 
-    <ul>  
+    <ul>
       <h2>Produkter</h2>
       <li id="product" th:each=" product : ${products}">
         <span th:text="${product.name}"></span><br>
-        <a th:href="@{/details/(id=${product.id})}"> <!--<input type="hidden" th:field="*{id}">-->
+        <a th:href="@{/details/{product}(product=${product.id})}">
           <img th:src="${product.picture}" alt="Bildbeskrivning" style="width: 200px;"></a>
 
       </li>

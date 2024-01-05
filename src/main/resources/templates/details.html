@@ -1,31 +1,37 @@
 <!DOCTYPE html>
 <html lang="sv">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <div id="centerPage">
 
-        <ul>  
-          <h2>Produkt</h2>
-          <li id="product" th:each=" product : ${products}">
-            <span th:text="${product.name}"></span><br>
-            <span th:text="${product.description}"></span><br>
-            <span th:text="${product.price}"></span> kr<br>
-            <img th:src="${product.picture}" alt="Bildbeskrivning" style="width: 200px;">
-          </li>
-        </ul>
-        
-       <!-- Gör onsynlig om man ej är inloggad-->
-        <button type="submit">Lägg i kundvagn</button>
-        
-        <button>
-            <a href="/">Till startsidan</a>
-        </button>
-      
-    </div>
-    
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="centerPage">
+    <h2>Produkt</h2>
+
+
+    <!-- FUNKAR!!! JOBBA HÄRIFRÅN -->
+    <form th:object="${product}">
+      <span th:each="product : ${id}" th:text="'bilens ID: ' + *{id}"></span><br>
+      <span th:each="product : ${id}" th:text="'bilens namn: ' + *{name}"></span><br>
+      <span th:each="product : ${id}" th:text="'bilens beskrivning: ' + *{description}"></span><br>
+      <span th:each="product : ${id}" th:text="'bilens pris: ' + *{price}"></span><br>
+      <!-- Bilden knasar -->
+      <span th:each="product : ${id}" th:text="'bilens bild: ' + *{picture}"></span><br>
+    </form>
+
+
+    <!-- Gör onsynlig om man ej är inloggad-->
+    <button type="submit">Lägg i kundvagn</button>
+
+    <button>
+      <a href="/">Till startsidan</a>
+    </button>
+
+  </div>
+
 </body>
+
 </html>
