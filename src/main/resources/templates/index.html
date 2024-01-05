@@ -31,9 +31,9 @@
       <h2>Produkter</h2>
       <li id="product" th:each=" product : ${products}">
         <span th:text="${product.name}"></span><br>
-        <span th:text="${product.description}"></span><br>
-        <span th:text="${product.price}"></span> kr<br>
-        <img th:src="${product.picture}" alt="Bildbeskrivning" style="width: 200px;">
+        <a th:href="@{/details/(id=${product.id})}"> <!--<input type="hidden" th:field="*{id}">-->
+          <img th:src="${product.picture}" alt="Bildbeskrivning" style="width: 200px;"></a>
+
       </li>
     </ul>
 
