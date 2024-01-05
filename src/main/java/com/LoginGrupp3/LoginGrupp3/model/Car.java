@@ -14,16 +14,16 @@ public class Car {
     private String name;
     private int price;
     private String description;
-    // private Object picture;
+    private String picture;
 
     public Car() {
     }
 
-    public Car(String name, int price, String description, Object picture) {
+    public Car(String name, int price, String description, String picture) {
         this.name = name;
         this.price = price;
         this.description = description;
-        // this.picture = picture;
+        this.picture = picture;
     }
 
     public int getId() {
@@ -58,12 +58,12 @@ public class Car {
         this.description = description;
     }
 
-    // public Object getPicture() {
-    //     return picture;
-    // }
+    public Object getPicture() {
+        return picture;
+    }
 
-    // public void setPicture(Object picture) {
-    //     this.picture = picture;
-    // }
+    public void setPicture(String picture) {
+        this.picture = picture;
+    }
 
 }
