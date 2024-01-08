@@ -1,11 +1,26 @@
+/* Används för Alla sidor */
+
+
 * {
   padding: 0;
   margin: 0;
 }
 
+
 body {
-  font-family: Arial, Tahoma, Serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
   color: black;
+}
+
+.imageHeader {
+  width: 100%;
+
+}
+
+a {
+  color: #0060B6;
+  text-decoration: none;
 }
 
 nav {
@@ -24,28 +39,116 @@ nav li {
   padding-left: 1rem;
 }
 
+
+
+/* Slut på alla sidor */
+
+
+/* Används för details.html */
+
+#Detailsproduct {
+  background: #cfd8dc;
+  margin-bottom: 5%;
+  display: grid;
+  grid-template-areas:
+    "image-container text-container side"
+    "image-container text-container side";
+  padding: 0.5%;
+}
+
+.image-container {
+  grid-area: image-container;
+  margin-right: 20px;
+}
+
+.text-container {
+  grid-area: text-container;
+}
+
+.side {
+  grid-area: side;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+#carDescription {
+  white-space: pre-line;
+}
+
+
+/* Används för index.html */
+
+
 #centerPage {
-  margin-top: 10%;
-  margin-left: 20%;
-  margin-right: 20%;
-
-
+  text-align: center;
+  padding-left: 20%;
+  padding-right: 20%;
 }
 
 #product {
   background: #cfd8dc;
-  margin-bottom: 2%;
-
-}
-a {
-  color: #0060B6;
-  text-decoration: none;
+  text-align: center;
+  margin: 1%;
 }
 
-#formDiv{
-  margin: 10%;
-  padding: 10%;
+/* Används för att sortera produkterna i sidled sedan neråt */
+
+.serv ul {
+  display: flex;
+  flex-wrap: wrap;
+  padding-left: 0;
+
+}
+
+.serv ul li {
+  list-style: none;
+  flex: 0 0 20.333333%;
+}
+.serv {
+  align-content: center;
+
+}
+
+/* Slut för index.html */
+
+
+/* Används för createNewAccount.html */
+
+#formDiv {
+  padding: 5%;
   text-align: center;
   background: #cfd8dc;
   margin-bottom: 2%;
+}
+
+
+
+
+
+/* Används för för telefonvy */
+
+@media (max-width: 1200px) {
+  #centerPage {
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  #Detailsproduct {
+    background: #cfd8dc;
+    margin-bottom: 5%;
+    display: grid;
+    grid-template-areas:
+      "image-container image-container image-container"
+      "text-container text-container side";
+  }
+
+  .image-container {
+    grid-area: image-container;
+    margin-right: 0px;
+  }
+  .serv {
+    flex-direction: column;
+  }
+
 }
