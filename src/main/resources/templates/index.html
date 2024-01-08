@@ -11,9 +11,11 @@
 
 <body>
 
-  <header>
-    <h1 style="text-align: center;">Startsida</h1>
+  <header style="margin: 2%;">
+    <h1 style="text-align: center;" >Startsida</h1>
   </header>
+
+
   <nav>
     <h2><a href="/">Startsida</a></h2>
     <ul>
@@ -24,18 +26,28 @@
     </ul>
   </nav>
 
+
+  <div>
+    <img th:src="@{/image.png}" class="imageHeader">
+  </div>
+
+
   <!-- Här ska produkter placeras ut-->
   <div id="centerPage">
+    <h2 style="margin-bottom: 5%;">Våra Bilar </h2>
 
-    <ul>
-      <h2>Produkter</h2>
-      <li id="product" th:each=" product : ${products}">
-        <span th:text="${product.name}"></span><br>
-        <a th:href="@{/details/{product}(product=${product.id})}">
-          <img th:src="${product.picture}" alt="Bildbeskrivning" style="width: 200px;"></a>
+    <div class="serv">
 
-      </li>
-    </ul>
+      <ul>
+        <li id="product" th:each=" product : ${products}">
+          <span th:text="${product.name}"></span><br>
+          <a th:href="@{/details/{product}(product=${product.id})}">
+            <img th:src="${product.picture}" alt="Bildbeskrivning" style="width: 200px; height: 200px;"></a>
+
+        </li>
+      </ul>
+
+    </div>
 
 
   </div>

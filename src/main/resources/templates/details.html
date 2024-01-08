@@ -11,9 +11,11 @@
 
 <body>
 
-  <header>
+  <header style="margin: 2%;">
     <h1 style="text-align: center;">Startsida</h1>
   </header>
+
+
   <nav>
     <h2><a href="/">Startsida</a></h2>
     <ul>
@@ -24,23 +26,39 @@
     </ul>
   </nav>
 
+
+  <div>
+    <img th:src="@{/image.png}" class="imageHeader">
+  </div>
+
+
   <div id="centerPage">
-    <h2>Produkt</h2>
+    <h2><span th:object="${product}"> <span th:each="product : ${id}" th:text="*{name}"></span><br>
+      </span></h2>
 
 
     <!-- FUNKAR!!! JOBBA HÄRIFRÅN -->
-    <form th:object="${product}" id="product">
-      <span th:each="product : ${id}" th:text="'bilens ID: ' + *{id}"></span><br>
-      <span th:each="product : ${id}" th:text="'bilens namn: ' + *{name}"></span><br>
-      <span th:each="product : ${id}" th:text="'bilens beskrivning: ' + *{description}"></span><br>
-      <span th:each="product : ${id}" th:text="'bilens pris: ' + *{price}"></span><br>
-      <!-- Bilden knasar -->
-      <span th:each="product : ${id}"></span> <img th:src="${product.picture}" alt="Bildbeskrivning"
-        style="width: 200px;"></a>
-      </span><br>
+    <form th:object="${product}" id="Detailsproduct">
 
-      <!-- Gör onsynlig om man ej är inloggad-->
-      <button type="submit">Lägg i kundvagn</button>
+
+        <div class="image-container">
+          <span th:each="product : ${id}"></span>
+          <img th:src="${product.picture}" alt="Bildbeskrivning" style="width: 500px; height: 500px;">
+        </div>
+
+        <div class="text-container">
+          <h3>Om denna bil</h3>
+
+          <span th:each="product : ${id}" th:utext="*{description}" id="carDescription"></span><br>
+
+
+          <!-- Gör onsynlig om man ej är inloggad-->
+        </div>
+        <div class="side">
+          <h3><span th:each="product : ${id}" th:text="'bilens pris: ' + *{price}"></span></h3>
+          <button type="submit" style="float: right;">Lägg i kundvagn</button>
+
+        </div>
 
     </form>
 
