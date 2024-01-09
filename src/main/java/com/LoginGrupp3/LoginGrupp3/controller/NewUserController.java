@@ -12,7 +12,6 @@ import com.LoginGrupp3.LoginGrupp3.repository.UserRepository;
 @Controller
 public class NewUserController {
 
-
     @Autowired
     private UserRepository userRepository;
 
@@ -22,15 +21,18 @@ public class NewUserController {
     }
 
     @PostMapping("/newUser")
-    public String newUser(@RequestParam("firstName") String firstName, @RequestParam("surname") String surname, @RequestParam("email") String email, @RequestParam("username") String username, @RequestParam("password") String password) {
+    public String newUser(@RequestParam("firstName") String firstName, @RequestParam("surname") String surname,
+            @RequestParam("email") String email, @RequestParam("username") String username,
+            @RequestParam("password") String password) {
         User user = new User();
         user.setFirstName(firstName);
         user.setSurname(surname);
         user.setEmail(email);
         user.setUsername(username);
+
         user.setPassword(password);
         userRepository.save(user);
-        
+
         System.out.println(firstName + surname + email + username + password);
         return "redirect:/";
     }
