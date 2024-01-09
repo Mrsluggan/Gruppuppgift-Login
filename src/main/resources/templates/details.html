@@ -4,10 +4,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <link rel="stylesheet" href="style.css">
-  
-  <!-- <link rel="stylesheet" th:href="@{/style.css}"> -->
+
+
+
+  <link rel="stylesheet" th:href="@{/style.css}">
 
   <title>Details</title>
 </head>
@@ -22,10 +22,13 @@
   <nav>
     <h2><a href="/">Startsida</a></h2>
     <ul>
-      <li>Logga in</a></li>
-      <li><a href="/createNewAccount">Skapa konto</a></li>
+      <li sec:authorize="isAuthenticated()"><a href="/logout">Logout</a></li>
+      <li sec:authorize="isAnonymous()"><a href="/login">Login</a>
+      </li>      <li><a href="/createNewAccount">Skapa konto</a></li>
+
+
       <!-- Denna ska inte synas om man inte är inloggad-->
-      <li>Mina odrar</a></li>
+      <li sec:authorize="isAuthenticated()"><a href="/orders">Mina odrar</a></li>
     </ul>
   </nav>
 
@@ -44,24 +47,28 @@
     <form th:object="${product}" id="Detailsproduct">
 
 
-        <div class="image-container">
-          <span th:each="product : ${id}"></span>
-          <img th:src="${product.picture}" alt="Bildbeskrivning" style="width: 500px; height: 500px;">
+      <div class="image-container">
+        <span th:each="product : ${id}"></span>
+        <img th:src="${product.picture}" alt="Bildbeskrivning" style="width: 500px; height: 500px;">
+      </div>
+
+      <div class="text-container">
+        <h3>Om denna bil</h3>
+
+        <span th:each="product : ${id}" th:utext="*{description}" id="carDescription"></span><br>
+
+
+        <!-- Gör onsynlig om man ej är inloggad-->
+      </div>
+      <div class="side">
+        <h3><span th:each="product : ${id}" th:text="'bilens pris: ' + *{price}"></span></h3>
+        <div sec:authorize="isAuthenticated()">
+          <button type="submit" style="float: right;">
+            Lägg i kundvagn
+          </button>
         </div>
 
-        <div class="text-container">
-          <h3>Om denna bil</h3>
-
-          <span th:each="product : ${id}" th:utext="*{description}" id="carDescription"></span><br>
-
-
-          <!-- Gör onsynlig om man ej är inloggad-->
-        </div>
-        <div class="side">
-          <h3><span th:each="product : ${id}" th:text="'bilens pris: ' + *{price}"></span></h3>
-          <button type="submit" style="float: right;">Lägg i kundvagn</button>
-
-        </div>
+      </div>
 
     </form>
 

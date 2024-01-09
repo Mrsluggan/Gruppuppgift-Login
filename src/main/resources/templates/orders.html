@@ -8,13 +8,13 @@
   <script defer> </script>
   <link rel="stylesheet" th:href="@{/style.css}">
 
-  <title>Startsida</title>
+  <title>Mina odrar</title>
 </head>
 
 <body>
 
   <header style="margin: 2%;">
-    <h1 style="text-align: center;">Startsida</h1>
+    <h1 style="text-align: center;">Mina odrar</h1>
   </header>
 
 
@@ -39,21 +39,11 @@
 
   <!-- Här ska produkter placeras ut-->
   <div id="centerPage">
-    <h2 style="margin-bottom: 5%;">Våra Bilar </h2>
 
-    <div class="serv">
-
-      <ul>
-        <li id="product" th:each=" product : ${products}">
-          <span th:text="${product.name}"></span><br>
-          <a th:href="@{/details/{product}(product=${product.id})}">
-            <img th:src="${product.picture}" alt="Bildbeskrivning" style="width: 200px; height: 200px;"></a>
-
-        </li>
-      </ul>
-
-    </div>
-
+<h1>Du har beställt</h1>
+<h4>pontiac trans am 1977</h4>
+    <img src="https://media.tenor.com/NpV8qd0OJTcAAAAM/pontiac-firebird-trans-am.gif" style="height: 300px; height: 300px;"><br>
+    Förväntat leveranstid: 2030
 
   </div>
 
