@@ -18,10 +18,14 @@
       <nav>
         <h2><a href="/">Startsida</a></h2>
         <ul>
-          <li>Logga in</a></li>
+          <li sec:authorize="isAuthenticated()"><a href="/logout">Logout</a></li>
+          <li sec:authorize="isAnonymous()"><a href="/login">Login</a></li>
+    
           <li><a href="/createNewAccount">Skapa konto</a></li>
+    
+    
           <!-- Denna ska inte synas om man inte är inloggad-->
-          <li>Mina odrar</a></li>
+          <li sec:authorize="isAuthenticated()">Mina odrar</a></li>
         </ul>
       </nav>
     
@@ -33,10 +37,10 @@
         <div>
             <h2> Skriv in dina uppgifter här</h2>
         </div>
-        <form th:action="@{/newUser}" method="post">
-            <label>Förnamn:</label>
-            <input type="text" placeholder="Namn" th:name="firstName"><br>
+        <form th:action="@{/newUser}" method="post" >
+            <label>Förnamn:</label>           
 
+            <input type="text" placeholder="Namn" th:name="firstName"><br>
 
             <label>Efternamn:</label>
             <input type="text" placeholder="Efternamn" th:name="surname"><br>
