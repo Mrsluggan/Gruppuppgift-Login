@@ -22,19 +22,18 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 
-        http.authorizeHttpRequests((request) -> request
-                .requestMatchers("/").permitAll()
-                .requestMatchers("/login").permitAll()
-                .requestMatchers("/details/**").permitAll()
+        http.csrf(csrf -> csrf.disable()).authorizeHttpRequests((request) -> request
                 .requestMatchers("/orders").authenticated()
-                .requestMatchers("/createNewAccount").permitAll()
-                .requestMatchers("/image.png").permitAll()
-                .requestMatchers("/newUser").permitAll()
-                .requestMatchers("style.css").permitAll()
-                .requestMatchers("image.png").permitAll())
+                .anyRequest().permitAll())
+
                 .userDetailsService(jpsUserDetailService)
+
                 .formLogin(Customizer.withDefaults())
-                .httpBasic(Customizer.withDefaults());
+                .logout(logout -> logout
+                        .logoutUrl("/logout")
+                        .logoutSuccessUrl("/")
+                        .invalidateHttpSession(true)
+                        .deleteCookies("JSESSIONID"));
 
         return http.build();
     }

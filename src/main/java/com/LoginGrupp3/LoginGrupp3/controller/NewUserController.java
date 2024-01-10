@@ -10,14 +10,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.LoginGrupp3.LoginGrupp3.model.User;
 import com.LoginGrupp3.LoginGrupp3.repository.UserRepository;
 
-
-
-
 @Controller
 public class NewUserController {
- 
+
     @Autowired
-private PasswordEncoder bcryptEncoder;
+    private PasswordEncoder bcryptEncoder;
 
     @Autowired
     private UserRepository userRepository;
@@ -37,13 +34,9 @@ private PasswordEncoder bcryptEncoder;
         user.setSurname(surname);
         user.setEmail(email);
         user.setUsername(username);
-        System.out.println(password);
-        password=bcryptEncoder.encode(password);
-        System.out.println(password);
+        password = bcryptEncoder.encode(password);
         user.setPassword(password);
         userRepository.save(user);
-
-        System.out.println(firstName + surname + email + username + password);
         return "redirect:/";
     }
 
