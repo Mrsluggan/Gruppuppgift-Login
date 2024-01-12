@@ -4,12 +4,13 @@
 * {
   padding: 0;
   margin: 0;
+  
 }
 
 
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
   color: black;
 }
 
@@ -17,17 +18,23 @@ body {
   width: 100%;
 
 }
-
+p {
+  font-weight:10;
+}
 a {
+  
   color: #0060B6;
   text-decoration: none;
+}
+a:hover {
+  background-color: #ddd;
+  color: black;
 }
 
 nav {
   display: flex;
   justify-content: space-between;
   padding: 1rem 2rem;
-  background: #cfd8dc;
 }
 
 nav ul {
@@ -39,6 +46,43 @@ nav li {
   padding-left: 1rem;
 }
 
+
+
+* {box-sizing: border-box;}
+
+
+.header {
+  overflow: hidden;
+}
+
+.header a {
+  float: left;
+  color: black;
+  text-align: left;
+  padding: 12px;
+  text-decoration: none;
+  font-size: 18px; 
+  line-height: 25px;
+  border-radius: 4px;
+}
+
+.header a.logo {
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.header a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.header-right {
+  float: right;
+}
+.header-right img{
+  height: 30px;
+  width: 30px;
+}
 
 
 /* Slut på alla sidor */
@@ -81,14 +125,12 @@ nav li {
 
 
 #centerPage {
-  text-align: center;
   padding-left: 20%;
   padding-right: 20%;
+  
 }
 
 #product {
-  background: #cfd8dc;
-  text-align: center;
   margin: 1%;
 }
 
@@ -98,6 +140,7 @@ nav li {
   display: flex;
   flex-wrap: wrap;
   padding-left: 0;
+  justify-content: center;
 
 }
 
@@ -130,10 +173,11 @@ nav li {
 @media (max-width: 1200px) {
   #centerPage {
     margin: 0 auto;
-    text-align: center;
+    
   }
 
   #Detailsproduct {
+    
     background: #cfd8dc;
     margin-bottom: 5%;
     display: grid;
@@ -148,6 +192,7 @@ nav li {
   }
   .serv {
     flex-direction: column;
+
   }
 
 }

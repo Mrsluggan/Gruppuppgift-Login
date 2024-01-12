@@ -13,17 +13,26 @@
 
 <body>
 
-  <header style="margin: 2%;">
-    <h1 style="text-align: center;">Startsida</h1>
+  <header>
+    <div class="header">
+      <a href="" class="logo"> <img th:src="@{icons/logo.png}" style="height: 100px; width: 100%;">
+      </a>
+      <div class="header-right">
+
+        <a href="/"><img th:src="@{icons/pin.png}" />Hitta hit<br>Kungliga slottet, 107 70 Stockholm</a>
+        <a href="/"><img th:src="@{icons/contact.png}" />Kontakta oss <br> +1 202-456-1111</a>
+      </div>
+    </div>
   </header>
 
-
+  <hr>
   <nav>
-    <h2><a href="/">Startsida</a></h2>
+    <h2><a href="/">Hem</a></h2>
     <ul>
       <li sec:authorize="isAuthenticated()"><a href="/logout">Logout</a></li>
       <li sec:authorize="isAnonymous()"><a href="/login">Login</a>
-      </li>      <li><a href="/createNewAccount">Skapa konto</a></li>
+      </li>
+      <li><a href="/createNewAccount">Skapa konto</a></li>
 
 
       <!-- Denna ska inte synas om man inte är inloggad-->
@@ -39,15 +48,16 @@
 
   <!-- Här ska produkter placeras ut-->
   <div id="centerPage">
-    <h2 style="margin-bottom: 5%;">Våra Bilar </h2>
+    <h2 style="margin: 5%;">Våra Bilar </h2>
+    <p style="margin: 5%;">Vi erbjuder alltid ett omfattande utbud av prisvärda begagnade bilar. Utforska vårt aktuella sortiment av begagnade fordon online eller besök vår bilhall i slottet. Vi välkomnar dig att upptäcka våra aktuella modeller och står redo att hjälpa dig hitta den bil som bäst motsvarar dina behov.</p>
 
     <div class="serv">
 
       <ul>
         <li id="product" th:each=" product : ${products}">
-          <span th:text="${product.name}"></span><br>
           <a th:href="@{/details/{product}(product=${product.id})}">
-            <img th:src="${product.picture}" alt="Bildbeskrivning" style="width: 200px; height: 200px;"></a>
+            <img th:src="${product.picture}" alt="Bildbeskrivning" style="width: 200px; height: 200px;"></a><br>
+          <span th:text="${product.name}"></span>
 
         </li>
       </ul>
