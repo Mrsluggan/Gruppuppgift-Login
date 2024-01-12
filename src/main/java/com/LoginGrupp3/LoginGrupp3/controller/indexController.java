@@ -35,27 +35,22 @@ public class indexController {
     @GetMapping("/details/{id}")
     public String getDetailsId(Model model, @PathVariable(value = "id") int id) {
         System.out.println(id);
-        Optional<Car> car = carRepository.findById(id); // tog bort .get
+        Optional<Car> car = carRepository.findById(id); 
 
-        //Kollar om det finns en bil i car
-        if (car.isPresent()) {
-            //Plockar upp bilen
-            Car currentCar = car.get();
-            //Skapar en lista med random cars + den aktuella med id
-            List<Car> randomCars = carRepository.findRandomCarsIncludingCurrent(4, currentCar.getId());
 
-            //Tar bort aktuella bilen
-            randomCars.remove(currentCar);
+        // Plockar upp bilen
+        Car currentCar = car.get();
+        // Skapar en lista med random cars + den aktuella med id
+        List<Car> randomCars = carRepository.findRandomCarsIncludingCurrent(4, currentCar.getId());
 
-            //Lägger till aktuella
-            model.addAttribute("product", currentCar);
-            
-            model.addAttribute("otherProducts", randomCars);
-            return "details";
-        } else {
-            // Handle case where the car with the given id is not found
-            return "notfound";
-        }
+        // Tar bort aktuella bilen
+        randomCars.remove(currentCar);
+
+        // Lägger till aktuella
+        model.addAttribute("product", currentCar);
+
+        model.addAttribute("otherProducts", randomCars);
+        return "details";
 
     }
 }

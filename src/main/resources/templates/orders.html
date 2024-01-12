@@ -19,7 +19,7 @@
       </a>
       <div class="header-right">
         <a href="/" style="display: block; margin-right: 50px;">
-          <img th:src="@{static/icons/pin.png}" />Hitta hit<br>Kungliga slottet, 107 70 Stockholm
+          <img th:src="@{/icons/pin.png}" />Hitta hit<br>Kungliga slottet, 107 70 Stockholm
         </a>
         <a href="/" style="display: block;">
           <img th:src="@{/icons/contact.png}" />Kontakta oss <br> +1 202-456-1111
@@ -32,7 +32,8 @@
     <ul>
       <li sec:authorize="isAuthenticated()"><a href="/logout">Logout</a></li>
       <li sec:authorize="isAnonymous()"><a href="/login">Login</a>
-      </li>      <li><a href="/createNewAccount">Skapa konto</a></li>
+      </li>
+      <li><a href="/createNewAccount">Skapa konto</a></li>
 
 
       <!-- Denna ska inte synas om man inte är inloggad-->
@@ -48,12 +49,13 @@
 
   <!-- Här ska produkter placeras ut-->
   <div id="centerPage">
-
-<h1>Du har beställt</h1>
-<h4>pontiac trans am 1977</h4>
-    <img src="https://media.tenor.com/NpV8qd0OJTcAAAAM/pontiac-firebird-trans-am.gif" style="height: 300px; height: 300px;"><br>
-    Förväntat leveranstid: 2030
-
+    <diV style="text-align: center;">
+      <h1>Du har beställt</h1>
+      <h4>pontiac trans am 1977</h4>
+      <img src="https://media.tenor.com/NpV8qd0OJTcAAAAM/pontiac-firebird-trans-am.gif"
+        style="height: 300px; height: 300px;"><br>
+      Förväntat leveranstid: 2030
+    </diV>
   </div>
 
 </body>
