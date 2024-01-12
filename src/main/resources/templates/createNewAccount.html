@@ -2,64 +2,75 @@
 <html lang="sv">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" th:href="@{/style.css}">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" th:href="@{/style.css}">
 
-    <title>Skapa konto</title>
+  <title>Skapa konto</title>
 </head>
 
 <body>
-    <header style="margin: 2%;">
-        <h1 style="text-align: center;">Skapa konto</h1>
-      </header>
-    
-    
-      <nav>
-        <h2><a href="/">Startsida</a></h2>
-        <ul>
-          <li sec:authorize="isAuthenticated()"><a href="/logout">Logout</a></li>
-          <li sec:authorize="isAnonymous()"><a href="/login">Login</a>
-          </li>      <li><a href="/createNewAccount">Skapa konto</a></li>
-    
-    
-          <!-- Denna ska inte synas om man inte är inloggad-->
-          <li sec:authorize="isAuthenticated()"><a href="/orders">Mina odrar</a></li>
-        </ul>
-      </nav>
-    
-    
-      <div>
-        <img th:src="@{/image.png}" class="imageHeader">
+
+  <header>
+    <div class="header">
+      <a href="" class="logo"> <img th:src="@{icons/logo.png}" style="height: 100px; width: 100%;">
+      </a>
+      <div class="header-right">
+        <a href="/" style="display: block; margin-right: 50px;">
+          <img th:src="@{icons/pin.png}" />Hitta hit<br>Kungliga slottet, 107 70 Stockholm
+        </a>
+        <a href="/" style="display: block;">
+          <img th:src="@{icons/contact.png}" />Kontakta oss <br> +1 202-456-1111
+        </a>
       </div>
-    <div id="formDiv">
-        <div>
-            <h2> Skriv in dina uppgifter här</h2>
-        </div>
-        <form th:action="@{/newUser}" method="post" >
-            <label>Förnamn:</label>           
+  </header>
 
-            <input type="text" placeholder="Namn" th:name="firstName"><br>
-
-            <label>Efternamn:</label>
-            <input type="text" placeholder="Efternamn" th:name="surname"><br>
-
-            <label>Email:</label>
-            <input type="text" placeholder="Email" th:name="email"><br>
-
-            <label>Användarnamn:</label>
-            <input type="text" placeholder="Användarnamn" th:name="username"><br>
-
-            <label>Lösenord:</label>
-            <input type="text" placeholder="Lösenord" th:name="password"><br>
+  <nav>
+    <h2><a href="/">Startsida</a></h2>
+    <ul>
+      <li sec:authorize="isAuthenticated()"><a href="/logout">Logout</a></li>
+      <li sec:authorize="isAnonymous()"><a href="/login">Login</a>
+      </li>
+      <li><a href="/createNewAccount">Skapa konto</a></li>
 
 
+      <!-- Denna ska inte synas om man inte är inloggad-->
+      <li sec:authorize="isAuthenticated()"><a href="/orders">Mina odrar</a></li>
+    </ul>
+  </nav>
 
-            <button type="submit">Skapa användare</button>
 
-
-        </form>
+  <div>
+    <img th:src="@{/image.png}" class="imageHeader">
+  </div>
+  <div id="formDiv">
+    <div>
+      <h2> Skriv in dina uppgifter här</h2>
     </div>
+    <form th:action="@{/newUser}" method="post">
+      <label>Förnamn:</label>
+
+      <input type="text" placeholder="Namn" th:name="firstName"><br>
+
+      <label>Efternamn:</label>
+      <input type="text" placeholder="Efternamn" th:name="surname"><br>
+
+      <label>Email:</label>
+      <input type="text" placeholder="Email" th:name="email"><br>
+
+      <label>Användarnamn:</label>
+      <input type="text" placeholder="Användarnamn" th:name="username"><br>
+
+      <label>Lösenord:</label>
+      <input type="password" placeholder="Lösenord" th:name="password"><br>
+
+
+
+      <button type="submit">Skapa användare</button>
+
+
+    </form>
+  </div>
 
 </body>
 

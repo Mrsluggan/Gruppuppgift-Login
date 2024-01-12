@@ -11,7 +11,11 @@ public class Car {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+
+    private String brand;
     private String name;
+    private String year;
+    private String engine;
     private int price;
     private String description;
     private String picture;
@@ -19,8 +23,13 @@ public class Car {
     public Car() {
     }
 
-    public Car(String name, int price, String description, String picture) {
+    public Car(int id, String brand, String name, String year, String engine, int price, String description,
+            String picture) {
+        this.id = id;
+        this.brand = brand;
         this.name = name;
+        this.year = year;
+        this.engine = engine;
         this.price = price;
         this.description = description;
         this.picture = picture;
@@ -66,4 +75,27 @@ public class Car {
         this.picture = picture;
     }
 
+    public String getYear() {
+        return year;
+    }
+
+    public void setYear(String year) {
+        this.year = year;
+    }
+
+    public String getEngine() {
+        return engine;
+    }
+
+    public void setEngine(String engine) {
+        this.engine = engine;
+    }
+
+    public String getBrand() {
+        return brand;
+    }
+
+    public void setBrand(String brand) {
+        this.brand = brand;
+    }
 }

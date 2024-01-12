@@ -18,11 +18,13 @@
       <a href="" class="logo"> <img th:src="@{icons/logo.png}" style="height: 100px; width: 100%;">
       </a>
       <div class="header-right">
-
-        <a href="/"><img th:src="@{icons/pin.png}" />Hitta hit<br>Kungliga slottet, 107 70 Stockholm</a>
-        <a href="/"><img th:src="@{icons/contact.png}" />Kontakta oss <br> +1 202-456-1111</a>
+        <a href="/" style="display: block; margin-right: 50px;">
+          <img th:src="@{icons/pin.png}" />Hitta hit<br>Kungliga slottet, 107 70 Stockholm
+        </a>
+        <a href="/" style="display: block;">
+          <img th:src="@{icons/contact.png}" />Kontakta oss <br> +1 202-456-1111
+        </a>
       </div>
-    </div>
   </header>
 
   <hr>
@@ -49,15 +51,20 @@
   <!-- Här ska produkter placeras ut-->
   <div id="centerPage">
     <h2 style="margin: 5%;">Våra Bilar </h2>
-    <p style="margin: 5%;">Vi erbjuder alltid ett omfattande utbud av prisvärda begagnade bilar. Utforska vårt aktuella sortiment av begagnade fordon online eller besök vår bilhall i slottet. Vi välkomnar dig att upptäcka våra aktuella modeller och står redo att hjälpa dig hitta den bil som bäst motsvarar dina behov.</p>
+    <p style="margin: 5%;">Vi erbjuder alltid ett omfattande utbud av prisvärda begagnade bilar. Utforska vårt aktuella
+      sortiment av begagnade fordon online eller besök vår bilhall i slottet. Vi välkomnar dig att upptäcka våra
+      aktuella modeller och står redo att hjälpa dig hitta den bil som bäst motsvarar dina behov.</p>
 
     <div class="serv">
 
       <ul>
         <li id="product" th:each=" product : ${products}">
           <a th:href="@{/details/{product}(product=${product.id})}">
-            <img th:src="${product.picture}" alt="Bildbeskrivning" style="width: 200px; height: 200px;"></a><br>
-          <span th:text="${product.name}"></span>
+            <img th:src="${product.picture}" alt="Bildbeskrivning" class="imageIndex">
+          </a><br>
+          <span style="font-weight:bold;" th:text="${product.brand}"></span><Br>
+          <span th:text="${product.name}"></span><br>
+          <span th:text="${product.engine}"></span>
 
         </li>
       </ul>

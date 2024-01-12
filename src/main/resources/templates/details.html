@@ -4,27 +4,35 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-
-
+  <script defer> </script>
   <link rel="stylesheet" th:href="@{/style.css}">
-
   <title>Details</title>
 </head>
 
 <body>
 
-  <header style="margin: 2%;">
-    <h1 >Startsida</h1>
+  <header>
+    <div class="header">
+      <a href="" class="logo"> <img th:src="@{/icons/logo.png}" style="height: 100px; width: 100%;">
+      </a>
+      <div class="header-right">
+        <a href="/" style="display: block; margin-right: 50px;">
+          <img th:src="@{/icons/pin.png}" />Hitta hit<br>Kungliga slottet, 107 70 Stockholm
+        </a>
+        <a href="/" style="display: block;">
+          <img th:src="@{/icons/contact.png}" />Kontakta oss <br> +1 202-456-1111
+        </a>
+      </div>
   </header>
 
-
+  <hr>
   <nav>
     <h2><a href="/">Hem</a></h2>
     <ul>
       <li sec:authorize="isAuthenticated()"><a href="/logout">Logout</a></li>
       <li sec:authorize="isAnonymous()"><a href="/login">Login</a>
-      </li>      <li><a href="/createNewAccount">Skapa konto</a></li>
+      </li>
+      <li><a href="/createNewAccount">Skapa konto</a></li>
 
 
       <!-- Denna ska inte synas om man inte är inloggad-->
@@ -39,41 +47,53 @@
 
 
   <div id="centerPage">
-    <h2><span th:object="${product}"> <span th:each="product : ${id}" th:text="*{name}"></span><br>
-      </span></h2>
+    <span th:object="${product}"> <span th:each="product : ${id}">
+        <h1 th:text="*{brand}"></h1><br>
+        <h2 th:text="*{name}"></h2>
+      </span>
 
 
-    <!-- FUNKAR!!! JOBBA HÄRIFRÅN -->
-    <form th:object="${product}" id="Detailsproduct">
+      <!-- FUNKAR!!! JOBBA HÄRIFRÅN -->
+      <form th:object="${product}" id="Detailsproduct">
 
 
-      <div class="image-container">
-        <span th:each="product : ${id}"></span>
-        <img th:src="${product.picture}" alt="Bildbeskrivning" style="width: 500px; height: 500px;">
-      </div>
-
-      <div class="text-container">
-        <h3>Om denna bil</h3>
-
-        <span th:each="product : ${id}" th:utext="*{description}" id="carDescription"></span><br>
-
-
-        <!-- Gör onsynlig om man ej är inloggad-->
-      </div>
-      <div class="side">
-        <h3><span th:each="product : ${id}" th:text="'bilens pris: ' + *{price}"></span></h3>
-        <div sec:authorize="isAuthenticated()">
-          <button type="submit" style="float: right;">
-            Lägg i kundvagn
-          </button>
+        <div class="image-container">
+          <span th:each="product : ${id}"></span>
+          <img th:src="${product.picture}" alt="Bildbeskrivning" class="image-container">
         </div>
 
+        <div class="text-container">
+          <h3>Om denna bil</h3>
+
+          <span th:each="product : ${id}" th:utext="*{description}" id="carDescription"></span><br>
+
+
+          <!-- Gör onsynlig om man ej är inloggad-->
+        </div>
+        <div class="side">
+          <h3><span th:each="product : ${id}" th:text="'bilens pris: ' + *{price}"></span></h3>
+          <div sec:authorize="isAuthenticated()">
+            <button type="submit" style="float: right;">
+              Lägg i kundvagn
+            </button>
+          </div>
+
+        </div>
+
+      </form>
+
+      <div>
+        <h4>Våra andra bilar</h4>
+        <hr>
+        <ul class="randomCars">
+          <li id="product" th:each=" product : ${otherProducts}">
+            <a th:href="@{/details/{product}(product=${product.id})}">
+              <img th:src="${product.picture}" alt="Bildbeskrivning" class="imageIndex"></a><br>
+            <span style="font-weight:bold;" th:text="${product.brand}"></span><Br>
+            <span th:text="${product.name}"></span>
+          </li>
+        </ul>
       </div>
-
-    </form>
-
-
-
 
   </div>
 

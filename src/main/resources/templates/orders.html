@@ -13,10 +13,19 @@
 
 <body>
 
-  <header style="margin: 2%;">
-    <h1 style="text-align: center;">Mina odrar</h1>
+  <header>
+    <div class="header">
+      <a href="" class="logo"> <img th:src="@{icons/logo.png}" style="height: 100px; width: 100%;">
+      </a>
+      <div class="header-right">
+        <a href="/" style="display: block; margin-right: 50px;">
+          <img th:src="@{static/icons/pin.png}" />Hitta hit<br>Kungliga slottet, 107 70 Stockholm
+        </a>
+        <a href="/" style="display: block;">
+          <img th:src="@{/icons/contact.png}" />Kontakta oss <br> +1 202-456-1111
+        </a>
+      </div>
   </header>
-
 
   <nav>
     <h2><a href="/">Hem</a></h2>
